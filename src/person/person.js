@@ -1,8 +1,6 @@
-export default class Person {
-  _birthDate;
-  _lastName;
-  _firstName;
+import { getAgeByBirthDate } from '../shared/shared';
 
+export default class Person {
   constructor(birthDate, lastName, firstName) {
     this._lastName = lastName;
     this._firstName = firstName;
@@ -10,18 +8,14 @@ export default class Person {
   }
 
   get age() {
-    return getAge(this._birthDate);
+    return getAgeByBirthDate(this._birthDate);
   }
+
 }
 
-export function getAge(dateString) {
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  console.log(birthDate);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
-  }
-  return age;
-}
+Person.prototype.MAX_AGE = 100;
+
+Person.prototype.checkAge = function () {
+  return getAgeByBirthDate(this._birthDate) > this.MAX_AGE ? 'Too damn old' : 'Ok';
+};
+
