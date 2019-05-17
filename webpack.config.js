@@ -2,9 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require('webpack');
 
 module.exports = {
-
+  mode: 'development',
   entry: './index.js',
   output: {
     path: __dirname + '/dist',
@@ -25,10 +26,16 @@ module.exports = {
       }
     ]
   },
+  devtool: false,
   plugins: [
     new CleanWebpackPlugin(),
+    new webpack.SourceMapDevToolPlugin({}),
     new HtmlWebpackPlugin(),
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: { source: true }
+    }),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

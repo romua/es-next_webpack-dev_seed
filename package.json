@@ -4,7 +4,8 @@
   "description": "playground project",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=development --watch --config webpack.config.js",
+    "build": "webpack --watch --config webpack.config.js",
+    "build:bundle-report": "webpack --config webpack.config.js && webpack-bundle-analyzer dist/stats.json",
     "serve:dev": "concurrently \"npm run build\" \"webpack-dev-server --open\"",
     "test": "jest",
     "test:watch": "jest --watch"

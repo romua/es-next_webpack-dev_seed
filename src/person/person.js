@@ -2,13 +2,13 @@ import { getAgeByBirthDate } from '../shared/shared';
 
 export default class Person {
   constructor(birthDate, lastName, firstName) {
-    this._lastName = lastName;
-    this._firstName = firstName;
-    this._birthDate = birthDate;
+    this.lastName = lastName;
+    this.firstName = firstName;
+    this.birthDate = birthDate;
   }
 
   get age() {
-    return getAgeByBirthDate(this._birthDate);
+    return getAgeByBirthDate(this.birthDate);
   }
 
 }
@@ -16,6 +16,7 @@ export default class Person {
 Person.prototype.MAX_AGE = 100;
 
 Person.prototype.checkAge = function () {
-  return getAgeByBirthDate(this._birthDate) > this.MAX_AGE ? 'Too damn old' : 'Ok';
+  return getAgeByBirthDate(this.birthDate) > this.MAX_AGE ? 'Too damn old' : 'Ok';
 };
+
 
