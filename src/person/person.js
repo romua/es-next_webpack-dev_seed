@@ -1,7 +1,7 @@
 import { getAgeByBirthDate } from '../shared/shared';
 
 export default class Person {
-  constructor(birthDate, lastName, firstName) {
+  constructor(birthDate = new Date(1990, 1,1), lastName="Lastname", firstName="Firstname") {
     this.lastName = lastName;
     this.firstName = firstName;
     this.birthDate = birthDate;
