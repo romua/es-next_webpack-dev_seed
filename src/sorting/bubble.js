@@ -13,14 +13,14 @@ export function bubbleSortingV2(arrayToSort) {
     //   currentIndex: i,
     //   resultArray: arrayToSort
     // });
-
+    // console.log(arrayToSort);
     if (arrayToSort[i - 1] > arrayToSort[i]) {
       artifactFound = true;
       swapAandB(i, i - 1, arrayToSort);
     }
   }
-  if (artifactFound)  {
-    bubbleSortingV1(arrayToSort);
+  if (artifactFound) {
+    bubbleSortingV2(arrayToSort);
   }
   return arrayToSort;
 }
@@ -34,6 +34,7 @@ export function bubbleSortingV1(arrayToSort) {
     //   resultArray: arrayToSort
     // });
 
+    // console.log(arrayToSort);
     if (arrayToSort[i - 1] > arrayToSort[i]) {
       // console.count('artifact found');
       swapAandB(i, i - 1, arrayToSort);
