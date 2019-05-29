@@ -4,13 +4,16 @@ import { githubUsers$, githubUsersPromise } from './API/asyncAwitApi';
 import { map } from 'rxjs/operators'
 import { bubbleSortingV1, bubbleSortingV2 } from './sorting/bubble';
 import { selectionSort } from './sorting/selection';
+import { iteratorPlayground } from './iterators/iterators';
+import insertionSort from './sorting/insertion';
+import quick from './sorting/quick-sort';
 
 
 function SORTING_ALGORITHMS(inputArray) {
-  const bubble_v1_start = performance.now();
-  const bubble_v1_result = bubbleSortingV1([...inputArray]);
-  const bubble_v1_end = performance.now();
-  console.log(`Sorting of ${[...inputArray]} with BUBBLE took %c ${(bubble_v1_end - bubble_v1_start)} milliseconds. `, 'color: red', `Result ${bubble_v1_result}`);
+  // const bubble_v1_start = performance.now();
+  // const bubble_v1_result = bubbleSortingV1([...inputArray]);
+  // const bubble_v1_end = performance.now();
+  // console.log(`Sorting of ${[...inputArray]} with BUBBLE took %c ${(bubble_v1_end - bubble_v1_start)} milliseconds. `, 'color: red', `Result ${bubble_v1_result}`);
 
   const bubble_v2_start = performance.now();
   const bubble_v2_result = bubbleSortingV2([...inputArray]);
@@ -22,10 +25,20 @@ function SORTING_ALGORITHMS(inputArray) {
   const selection_v1_end = performance.now();
   console.log(`Sorting of ${[...inputArray]} with SELECTION took %c ${(selection_v1_end - selection_v1_start)} milliseconds. `, 'color: red', `Result ${selection_v1_result}`);
 
+  const insertion_v1_start = performance.now();
+  const insertion_v1_result = insertionSort([...inputArray]);
+  const insertion_v1_end = performance.now();
+  console.log(`Sorting of ${[...inputArray]} with insertion took %c ${(insertion_v1_end - insertion_v1_start)} milliseconds. `, 'color: red', `Result ${insertion_v1_result}`);
+
+  const quick_v1_start = performance.now();
+  const quick_v1_result = quick([...inputArray]);
+  const quick_v1_end = performance.now();
+  console.log(`Sorting of ${[...inputArray]} with quick took %c ${(quick_v1_end - quick_v1_start)} milliseconds. `, 'color: red', `Result ${quick_v1_result}`);
+
+
 }
 
 SORTING_ALGORITHMS([9, 1, 7, 4, 6, 6, 1, 2, 0, 22, 11, 330, 123213, 0, 11, 77, 44, 2, 1, 33]);
-
 
 function OOP() {
   const p1 = new Person(new Date(1993, 10, 13), 'First', 'Person');
